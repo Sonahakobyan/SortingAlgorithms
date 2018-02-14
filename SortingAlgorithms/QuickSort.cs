@@ -7,10 +7,22 @@ using System.Diagnostics;
 
 namespace SortingAlgorithms
 {
+    /// <summary>
+    /// Quick Sort class
+    /// </summary>
     class QuickSort : AbstractSort
     {
+        /// <summary>
+        /// Clone of the defined array
+        /// </summary>
         private Int32[] arrayClone = Array;
 
+        /// <summary>
+        /// Swap two elements in the array
+        /// </summary>
+        /// <param name="arr">Array</param>
+        /// <param name="i">The first index to swap</param>
+        /// <param name="j">The second index to swap</param>
         private void Swap(Int32[] arr, Int32 i, Int32 j)
         {
             Int32 tmp = arr[i];
@@ -18,6 +30,13 @@ namespace SortingAlgorithms
             arr[j] = tmp;
         }
 
+        /// <summary>
+        /// Return pivot for given array and indexes
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="begin"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
         private int Partition(Int32[] arr, Int32 begin, Int32 end)
         {
             int tmp = arr[begin];
@@ -45,6 +64,12 @@ namespace SortingAlgorithms
             }
         }
 
+        /// <summary>
+        /// Recursive Quick Sort method 
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="begin"></param>
+        /// <param name="end"></param>
         private void quickSort(Int32[] arr, int begin, int end)
         {
             if (begin >= end)
@@ -58,6 +83,7 @@ namespace SortingAlgorithms
 
         public override Int32[] Sort()
         {
+            //Running Time
             Stopwatch watch = Stopwatch.StartNew();
             watch.Start();
 
@@ -66,7 +92,9 @@ namespace SortingAlgorithms
             watch.Stop();
             this.Time = watch.ElapsedMilliseconds;
 
-            //Memory
+            //Usage Memory
+            this.Memory = Size * sizeof(Int32);
+
             return arrayClone;
         }
     }

@@ -64,11 +64,12 @@ namespace SortingAlgorithms
                 Heapify(arrayClone, 0);
             }
 
-            Memory = Size * sizeof(Int32);
             watch.Stop();
             this.Time = watch.ElapsedMilliseconds;
 
-            
+            //Memory
+            Memory = Size * sizeof(Int32);
+
             return arrayClone;
         }        
     }
